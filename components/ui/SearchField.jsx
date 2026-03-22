@@ -12,17 +12,11 @@ export const SearchField = ({ placeholder = "ابدأ البحث هنا...", onC
 
     return (
         <div className={`relative w-full max-w-md group ${className} animate-in fade-in zoom-in-95 duration-500`}>
-            {/* Background Layer with Focus Animation */}
-            <div className={`
-                absolute inset-0 rounded-2xl transition-all duration-500
-                bg-white/40 dark:bg-white/5 
-                backdrop-blur-3xl border border-white/80 dark:border-white/10
-                shadow-[0_8px_32px_rgba(31,38,135,0.05),inset_0_1px_0_rgba(255,255,255,1)]
-                dark:shadow-[0_15px_35px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]
-                ${isFocused 
-                    ? 'ring-2 ring-blue-500/10 dark:ring-cyan-400/10 border-blue-400 dark:border-cyan-400 shadow-[0_20px_40px_rgba(59,130,246,0.15)] dark:shadow-[0_0_30px_rgba(0,255,255,0.1)]' 
-                    : 'hover:border-gray-300 dark:hover:border-white/20'}
-            `} />
+            <div className={`search-bg ${
+                isFocused
+                    ? 'ring-2 ring-blue-500/10 dark:ring-cyan-400/10 !border-blue-400 dark:!border-cyan-400 shadow-[0_20px_40px_rgba(59,130,246,0.15)] dark:shadow-[0_0_30px_rgba(0,255,255,0.1)]'
+                    : 'hover:border-gray-300 dark:hover:border-white/20'
+            }`} />
 
             {/* Icons Layer */}
             <Search className={`

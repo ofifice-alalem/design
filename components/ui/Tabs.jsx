@@ -21,13 +21,7 @@ export const Tabs = ({ tabs, defaultTab, onChange, className = '' }) => {
     };
 
     return (
-        <div className={`
-                relative flex p-1.5 
-                bg-white/50 dark:bg-black/40 
-                backdrop-blur-3xl border border-white/80 dark:border-white/10 
-                rounded-2xl overflow-hidden shadow-sm 
-                ${className}
-            `}>
+        <div className={`tabs-wrapper ${className}`}>
             {/* Sliding Indicator Background */}
             <div 
                 className="absolute h-[calc(100%-12px)] top-1.5 bg-white dark:bg-white/10 rounded-xl shadow-md dark:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/60 dark:border-white/15"

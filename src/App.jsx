@@ -39,7 +39,7 @@ export default function App() {
     }, []);
 
     const Section = ({ title, children, className = "", style = {} }) => (
-        <section style={style} className={`mb-12 bg-gradient-to-br from-white/30 to-white/10 dark:from-cyan-500/5 dark:to-purple-500/5 backdrop-blur-[40px] border border-white/60 border-t-white dark:border-white/5 dark:border-t-white/15 p-8 rounded-[32px] shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6),inset_0_0_15px_rgba(255,255,255,0.02)] transition-all duration-500 relative group/section ${className}`}>
+        <section style={style} className={`section-wrapper group/section ${className}`}>
             <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/5 to-transparent rounded-t-[32px] pointer-events-none"></div>
             <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-cyan-400 border-b border-gray-200/50 dark:border-white/10 pb-4 flex items-center gap-3 relative z-10">
                 <span className="w-3 h-3 rounded-full bg-blue-500 dark:bg-cyanNeon shadow-[0_0_10px_rgba(59,130,246,0.6)] dark:shadow-[0_0_15px_rgba(0,255,255,1)]"></span>
@@ -56,7 +56,7 @@ export default function App() {
                 <div className="max-w-7xl mx-auto space-y-8">
 
                     {/* Header Options — Floating Glass Bar */}
-                    <div className="sticky top-6 z-50 flex justify-between items-center bg-white/60 dark:bg-black/40 backdrop-blur-3xl border border-white/80 dark:border-white/10 px-6 py-3.5 rounded-2xl shadow-[0_15px_40px_-5px_rgba(31,38,135,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] group/header transition-all duration-500 hover:border-blue-400 dark:hover:border-cyan-400">
+                    <div className="page-header group/header">
                         <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tighter flex items-center gap-2 group-hover/header:tracking-tight transition-all">
                             <div className="w-8 h-8 rounded-[10px] bg-gradient-to-br from-blue-600 to-cyan-400 dark:from-cyan-400 dark:to-blue-600 shadow-lg flex items-center justify-center">
                                 <span className="text-white text-base">N</span>
@@ -241,19 +241,9 @@ export default function App() {
                     <Section title="5. Data Tables (الجداول) - Table / Cards Toggle">
                         <div className="flex justify-between items-end mb-6">
                             <p className="text-gray-600 dark:text-gray-400 text-sm">Reusable table with built-in view mode toggle.</p>
-                            <div className="flex p-1 bg-white/60 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm backdrop-blur-xl">
-                                <button
-                                    onClick={() => setTableViewMode('table')}
-                                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${tableViewMode === 'table' ? 'bg-white dark:bg-cyan-500/20 text-blue-600 dark:text-cyan-300 shadow-sm dark:shadow-[0_0_15px_rgba(0,255,255,0.3)] dark:border dark:border-cyan-400/50' : 'text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white'}`}
-                                >
-                                    Table View
-                                </button>
-                                <button
-                                    onClick={() => setTableViewMode('grid')}
-                                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${tableViewMode === 'grid' ? 'bg-white dark:bg-cyan-500/20 text-blue-600 dark:text-cyan-300 shadow-sm dark:shadow-[0_0_15px_rgba(0,255,255,0.3)] dark:border dark:border-cyan-400/50' : 'text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white'}`}
-                                >
-                                    Card View
-                                </button>
+                            <div className="view-switcher">
+                                <button onClick={() => setTableViewMode('table')} className={tableViewMode === 'table' ? 'view-switcher-btn-active' : 'view-switcher-btn-inactive'}>Table View</button>
+                                <button onClick={() => setTableViewMode('grid')} className={tableViewMode === 'grid' ? 'view-switcher-btn-active' : 'view-switcher-btn-inactive'}>Card View</button>
                             </div>
                         </div>
 
@@ -286,9 +276,9 @@ export default function App() {
                                 viewMode={tableViewMode}
                                 cardClassName={(row) => {
                                     const s = row.status.toLowerCase();
-                                    if (s.includes('approved') || s.includes('document')) return 'border !border-emerald-400 !border-t-emerald-400 dark:!border-emerald-400/80 dark:!border-t-emerald-400 shadow-[0_10px_30px_rgba(16,185,129,0.2),inset_0_0_15px_rgba(16,185,129,0.1)] dark:shadow-[0_10px_30px_rgba(16,185,129,0.15),inset_0_0_20px_rgba(16,185,129,0.1)] !from-emerald-50/60 dark:!from-emerald-900/20 dark:to-transparent dark:hover:!border-emerald-400 hover:!border-emerald-500';
-                                    if (s.includes('pending')) return 'border !border-orange-400 !border-t-orange-400 dark:!border-orange-400/80 dark:!border-t-orange-400 shadow-[0_10px_30px_rgba(249,115,22,0.2),inset_0_0_15px_rgba(249,115,22,0.1)] dark:shadow-[0_10px_30px_rgba(249,115,22,0.15),inset_0_0_20px_rgba(249,115,22,0.1)] !from-orange-50/60 dark:!from-orange-900/20 dark:to-transparent dark:hover:!border-orange-400 hover:!border-orange-500';
-                                    if (s.includes('reject') || s.includes('cancel')) return 'border !border-red-400 !border-t-red-400 dark:!border-red-400/80 dark:!border-t-red-400 shadow-[0_10px_30px_rgba(239,68,68,0.2),inset_0_0_15px_rgba(239,68,68,0.1)] dark:shadow-[0_10px_30px_rgba(239,68,68,0.15),inset_0_0_20px_rgba(239,68,68,0.1)] !from-red-50/60 dark:!from-red-900/20 dark:to-transparent dark:hover:!border-red-400 hover:!border-red-500';
+                                    if (s.includes('approved') || s.includes('document')) return 'status-card-approved';
+                                    if (s.includes('pending')) return 'status-card-pending';
+                                    if (s.includes('reject') || s.includes('cancel')) return 'status-card-rejected';
                                     return '';
                                 }}
                                 columns={[
@@ -298,10 +288,10 @@ export default function App() {
                                     {
                                         header: 'Status', accessor: 'status', render: (row) => {
                                             const s = row.status.toLowerCase();
-                                            if (s.includes('approved') || s.includes('document')) return <span className="px-3 py-1 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-700 border border-emerald-500 dark:bg-emerald-500/20 dark:text-emerald-400 dark:border-emerald-400 dark:shadow-[0_0_10px_rgba(16,185,129,0.3)] backdrop-blur-sm">Approved / Document</span>;
-                                            if (s.includes('pending')) return <span className="px-3 py-1 rounded-xl text-xs font-bold bg-orange-500/10 text-orange-700 border border-orange-500 dark:bg-orange-500/20 dark:text-orange-400 dark:border-orange-400 dark:shadow-[0_0_10px_rgba(249,115,22,0.3)] backdrop-blur-sm">Pending</span>;
-                                            if (s.includes('reject') || s.includes('cancel')) return <span className="px-3 py-1 rounded-xl text-xs font-bold bg-red-500/10 text-red-700 border border-red-500 dark:bg-red-500/20 dark:text-red-400 dark:border-red-400 dark:shadow-[0_0_10px_rgba(239,68,68,0.3)] backdrop-blur-sm">Reject / Canceled</span>;
-                                            return <span className="px-3 py-1 rounded-xl text-xs font-bold bg-gray-500/10 text-gray-700 border border-gray-500 dark:bg-gray-500/20 dark:text-gray-400 dark:border-gray-400 dark:shadow-[0_0_10px_rgba(156,163,175,0.3)] backdrop-blur-sm">{row.status}</span>;
+                                            if (s.includes('approved') || s.includes('document')) return <span className="badge-success">Approved / Document</span>;
+                                            if (s.includes('pending')) return <span className="badge-pending">Pending</span>;
+                                            if (s.includes('reject') || s.includes('cancel')) return <span className="badge-danger">Reject / Canceled</span>;
+                                            return <span className="px-3 py-1 rounded-xl text-xs font-bold border backdrop-blur-sm bg-gray-500/10 text-gray-700 border-gray-500 dark:bg-gray-500/20 dark:text-gray-400 dark:border-gray-400">{row.status}</span>;
                                         }
                                     },
                                     { header: 'Created At', accessor: 'date' },
@@ -378,7 +368,7 @@ export default function App() {
                     {/* 7. Modals System */}
                     <Section title="7. Modals & Dialogs (النوافذ المنبثقة)">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="p-6 bg-gradient-to-br from-white/80 to-white/30 dark:from-white/10 dark:to-transparent backdrop-blur-[50px] border border-white/60 border-t-white dark:border-white/10 dark:border-t-white/30 rounded-[24px] relative group overflow-hidden shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_0_15px_white] dark:shadow-[0_10px_30px_rgba(0,0,0,0.6),inset_0_0_15px_rgba(255,255,255,0.02)] hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 dark:hover:border-red-400/50 dark:hover:shadow-[0_0_35px_rgba(239,68,68,0.2),inset_0_0_20px_rgba(239,68,68,0.05)] flex flex-col h-full">
+                            <div className="preview-card preview-card-danger group">
                                 <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/10 to-transparent pointer-events-none rounded-t-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative z-10 flex-1">
                                     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 flex items-center gap-2"><Trash className="w-5 h-5 text-red-500" />نافذة الإجراءات الحرجة (Danger)</h3>
@@ -389,7 +379,7 @@ export default function App() {
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-gradient-to-br from-white/80 to-white/30 dark:from-white/10 dark:to-transparent backdrop-blur-[50px] border border-white/60 border-t-white dark:border-white/10 dark:border-t-white/30 rounded-[24px] relative group overflow-hidden shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_0_15px_white] dark:shadow-[0_10px_30px_rgba(0,0,0,0.6),inset_0_0_15px_rgba(255,255,255,0.02)] hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 dark:hover:border-cyan-400/50 dark:hover:shadow-[0_0_35px_rgba(0,255,255,0.2),inset_0_0_20px_rgba(0,255,255,0.05)] flex flex-col h-full">
+                            <div className="preview-card preview-card-primary group">
                                 <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/10 to-transparent pointer-events-none rounded-t-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative z-10 flex-1">
                                     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 flex items-center gap-2"><UploadCloud className="w-5 h-5 text-cyan-500" />نافذة المهام التفاعلية (Primary)</h3>
@@ -400,7 +390,7 @@ export default function App() {
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-gradient-to-br from-white/80 to-white/30 dark:from-white/10 dark:to-transparent backdrop-blur-[50px] border border-white/60 border-t-white dark:border-white/10 dark:border-t-white/30 rounded-[24px] relative group overflow-hidden shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_0_15px_white] dark:shadow-[0_10px_30px_rgba(0,0,0,0.6),inset_0_0_15px_rgba(255,255,255,0.02)] hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 dark:hover:border-emerald-400/50 dark:hover:shadow-[0_0_35px_rgba(16,185,129,0.2),inset_0_0_20px_rgba(16,185,129,0.05)] flex flex-col h-full">
+                            <div className="preview-card preview-card-success group">
                                 <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/10 to-transparent pointer-events-none rounded-t-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative z-10 flex-1">
                                     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 flex items-center gap-2"><Download className="w-5 h-5 text-emerald-500" />نظام النسخ الاحتياطي (Data)</h3>
@@ -411,7 +401,7 @@ export default function App() {
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-gradient-to-br from-white/80 to-white/30 dark:from-white/10 dark:to-transparent backdrop-blur-[50px] border border-white/60 border-t-white dark:border-white/10 dark:border-t-white/30 rounded-[24px] relative group overflow-hidden shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_0_15px_white] dark:shadow-[0_10px_30px_rgba(0,0,0,0.6),inset_0_0_15px_rgba(255,255,255,0.02)] hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 dark:hover:border-orange-400/50 dark:hover:shadow-[0_0_35px_rgba(249,115,22,0.2),inset_0_0_20px_rgba(249,115,22,0.05)] flex flex-col h-full">
+                            <div className="preview-card preview-card-warning group">
                                 <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/10 to-transparent pointer-events-none rounded-t-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative z-10 flex-1">
                                     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 flex items-center gap-2"><History className="w-5 h-5 text-orange-500" />نظام الاستعادة (Warning)</h3>
@@ -429,11 +419,7 @@ export default function App() {
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-5 leading-relaxed">هل أنت متأكد من رغبتك في حذف هذا العنصر؟ لا يمكن التراجع عن هذا الإجراء.</p>
                         <div className="space-y-1.5 mb-5">
                             <label className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">ملاحظة (اختياري)</label>
-                            <textarea
-                                className="w-full bg-black/5 dark:bg-white/5 border border-black/8 dark:border-white/8 rounded-xl p-3.5 text-sm text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500/30 dark:focus:ring-red-400/30 transition-all resize-none placeholder-gray-400 dark:placeholder-gray-600"
-                                rows="3"
-                                placeholder="أدخل سبب الحذف..."
-                            />
+                            <textarea className="modal-textarea" rows="3" placeholder="أدخل سبب الحذف..." />
                         </div>
                         <div className="flex justify-end gap-2.5 pt-4 border-t border-black/8 dark:border-white/8">
                             <Button variant="ghost" onClick={() => setDeleteModalOpen(false)}>إلغاء</Button>
@@ -445,7 +431,7 @@ export default function App() {
                         <div className="mb-5">
                             {!imagePreview ? (
                                 <label htmlFor="imageUpload" className="cursor-pointer block">
-                                    <div className="border-2 border-dashed border-gray-200 dark:border-white/10 hover:border-blue-400 dark:hover:border-cyan-500/50 rounded-2xl p-8 text-center transition-all duration-200 group bg-black/[0.02] dark:bg-white/[0.03] hover:bg-blue-50/50 dark:hover:bg-cyan-900/10">
+                                    <div className="upload-dropzone">
                                         <UploadCloud className="w-10 h-10 text-gray-300 dark:text-gray-600 mx-auto mb-3 group-hover:text-blue-500 dark:group-hover:text-cyan-400 transition-colors" />
                                         <p className="text-sm font-medium text-gray-600 dark:text-gray-400">اجلب صورة هنا أو اضغط للتصفح</p>
                                         <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">PNG, JPG, SVG — Max 5MB</p>
@@ -504,10 +490,7 @@ export default function App() {
                                             key={opt.value}
                                             type="button"
                                             onClick={() => setBackupType(opt.value)}
-                                            className={`w-full flex items-center gap-3.5 p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-200 ${isActive
-                                                    ? 'bg-blue-50 dark:bg-cyan-500/10 border-blue-400 dark:border-cyan-500/60 shadow-[0_0_0_1px_rgba(59,130,246,0.2)] dark:shadow-[0_0_0_1px_rgba(0,255,255,0.15),0_0_15px_rgba(0,255,255,0.08)]'
-                                                    : 'bg-black/[0.02] dark:bg-white/[0.02] border-black/6 dark:border-white/6 hover:border-blue-200 dark:hover:border-cyan-500/30 hover:bg-blue-50/30 dark:hover:bg-cyan-500/5'
-                                                }`}
+                                            className={isActive ? 'backup-option-active' : 'backup-option-inactive'}
                                         >
                                             {/* Radio indicator */}
                                             <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all duration-200 ${isActive

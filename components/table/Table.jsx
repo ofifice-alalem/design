@@ -5,23 +5,11 @@ export const Table = ({ columns, data, emptyMessage = "لا توجد سجلات 
 
     if (viewMode === 'grid') {
         return (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in zoom-in-95 duration-500">
                 {data.map((row, idx) => (
                     <div
                         key={idx}
-                        className={`
-                            relative group overflow-hidden cursor-pointer
-                            bg-gradient-to-br from-white/90 via-white/60 to-white/40
-                            dark:from-white/10 dark:via-white/5 dark:to-transparent
-                            backdrop-blur-[40px] border border-white/80 border-t-white
-                            dark:border-white/15 dark:border-t-white/30
-                            rounded-[28px] p-6
-                            shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_1px_0_rgba(255,255,255,1),inset_0_0_20px_rgba(255,255,255,0.5)]
-                            dark:shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_0_20px_rgba(255,255,255,0.02)]
-                            hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500
-                            dark:hover:border-cyan-400/80 dark:hover:shadow-[0_0_50px_rgba(0,255,255,0.25),0_20px_60px_rgba(0,0,0,0.8)]
-                            ${cardClassName ? cardClassName(row) : ''}
-                        `}
+                        className={`table-card ${cardClassName ? cardClassName(row) : ''}`}
                         onClick={() => onRowClick && onRowClick(row)}
                     >
                         {/* Specular highlight */}
@@ -77,10 +65,10 @@ export const Table = ({ columns, data, emptyMessage = "لا توجد سجلات 
     }
 
     return (
-        <div className="w-full bg-white/60 dark:bg-white/[0.04] backdrop-blur-[40px] border border-white/80 dark:border-white/15 rounded-[28px] overflow-hidden shadow-[0_10px_40px_-10px_rgba(31,38,135,0.08),inset_0_1px_0_rgba(255,255,255,1)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.1)] animate-in fade-in duration-500">
+        <div className="w-full table-wrapper animate-in fade-in duration-500">
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
-                    <thead className="bg-gray-50/60 dark:bg-black/40 sticky top-0 z-10 backdrop-blur-3xl border-b border-gray-200/60 dark:border-white/20">
+                    <thead className="table-header">
                         <tr>
                             {columns.map((col, idx) => (
                                 <th
@@ -101,7 +89,7 @@ export const Table = ({ columns, data, emptyMessage = "لا توجد سجلات 
                                 <tr
                                     key={rowIndex}
                                     onClick={() => onRowClick && onRowClick(row)}
-                                    className="hover:bg-blue-50/40 dark:hover:bg-cyan-500/[0.04] transition-all duration-300 cursor-pointer group"
+                                    className="table-row-hover group"
                                 >
                                     {columns.map((col, colIndex) => (
                                         <td key={colIndex} className="px-6 py-5 text-gray-700 dark:text-gray-100 font-bold relative group-hover:text-blue-700 dark:group-hover:text-cyan-400 transition-colors">

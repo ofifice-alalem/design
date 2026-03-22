@@ -12,12 +12,8 @@ export const Button = ({
     const variants = {
         primary: 'btn-primary',
         danger: 'btn-danger',
-        outline: `btn-base bg-white/70 text-gray-800 font-semibold backdrop-blur-2xl border border-gray-200 shadow-sm
-                  hover:bg-white hover:border-blue-400 hover:text-blue-600 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)]
-                  dark:bg-white/5 dark:text-white dark:border-white/15 dark:border-t-white/30
-                  dark:hover:border-cyan-400 dark:hover:bg-cyan-500/10 dark:hover:shadow-[0_0_30px_rgba(0,255,255,0.3)]`,
-        ghost: `btn-base bg-transparent text-gray-700 font-medium hover:bg-gray-100 hover:text-gray-900 backdrop-blur-sm border border-transparent
-                dark:text-gray-200 dark:hover:bg-white/10 dark:hover:text-white dark:hover:border-white/10`
+        outline: 'btn-outline',
+        ghost: 'btn-ghost'
     };
 
     return (

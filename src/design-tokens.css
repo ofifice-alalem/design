@@ -974,3 +974,49 @@
 @utility status-card-approved { border: 1px solid; border-color: rgb(52,211,153); border-top-color: rgb(52,211,153); .dark & { border-color: rgba(52,211,153,0.8); } box-shadow: 0 10px 30px rgba(16,185,129,0.2), inset 0 0 15px rgba(16,185,129,0.1); background: linear-gradient(to bottom right, rgba(236,253,245,0.6), rgba(255,255,255,0.4)); .dark & { background: linear-gradient(to bottom right, rgba(16,185,129,0.2), transparent); box-shadow: 0 10px 30px rgba(16,185,129,0.15), inset 0 0 20px rgba(16,185,129,0.1); } &:hover { border-color: rgb(52,211,153); .dark & { border-color: rgb(52,211,153); } } }
 @utility status-card-pending  { border: 1px solid; border-color: rgb(251,146,60); border-top-color: rgb(251,146,60); .dark & { border-color: rgba(251,146,60,0.8); } box-shadow: 0 10px 30px rgba(249,115,22,0.2), inset 0 0 15px rgba(249,115,22,0.1); background: linear-gradient(to bottom right, rgba(255,247,237,0.6), rgba(255,255,255,0.4)); .dark & { background: linear-gradient(to bottom right, rgba(249,115,22,0.2), transparent); box-shadow: 0 10px 30px rgba(249,115,22,0.15), inset 0 0 20px rgba(249,115,22,0.1); } &:hover { border-color: rgb(251,146,60); .dark & { border-color: rgb(251,146,60); } } }
 @utility status-card-rejected { border: 1px solid; border-color: rgb(252,165,165); border-top-color: rgb(252,165,165); .dark & { border-color: rgba(252,165,165,0.8); } box-shadow: 0 10px 30px rgba(239,68,68,0.2), inset 0 0 15px rgba(239,68,68,0.1); background: linear-gradient(to bottom right, rgba(254,242,242,0.6), rgba(255,255,255,0.4)); .dark & { background: linear-gradient(to bottom right, rgba(239,68,68,0.2), transparent); box-shadow: 0 10px 30px rgba(239,68,68,0.15), inset 0 0 20px rgba(239,68,68,0.1); } &:hover { border-color: rgb(252,165,165); .dark & { border-color: rgb(252,165,165); } } }
+
+/* Badges */
+@utility badge-base { @apply px-3 py-1 rounded-xl text-xs font-bold border backdrop-blur-sm; }
+@utility badge-success { @apply badge-base bg-emerald-500/10 text-emerald-700 border-emerald-500 dark:bg-emerald-500/20 dark:text-emerald-400 dark:border-emerald-400; }
+@utility badge-danger  { @apply badge-base bg-red-500/10 text-red-700 border-red-500 dark:bg-red-500/20 dark:text-red-400 dark:border-red-400; }
+
+/* Search clear button */
+@utility search-clear-btn {
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    background: rgb(243,244,246);
+    color: rgb(156,163,175);
+    transition: all 200ms ease;
+    &:hover { color: rgb(239,68,68); background: rgb(254,242,242); transform: rotate(90deg); }
+    .dark & { background: rgba(255,255,255,0.05); &:hover { color: rgb(252,165,165); background: rgba(239,68,68,0.1); } }
+}
+
+/* Tooltip colors per type */
+@utility tooltip-blue    { background: rgb(37,99,235);  .dark & { background: rgb(8,145,178); } }
+@utility tooltip-amber   { background: rgb(217,119,6); }
+@utility tooltip-red     { background: rgb(220,38,38); }
+@utility tooltip-emerald { background: rgb(5,150,105); }
+@utility tooltip-default { background: rgb(31,41,55);  .dark & { background: rgb(55,65,81); } }
+
+/* StatisticsCard icon per accent */
+@utility stat-icon-blue   { background: rgb(59,130,246);  color: white; box-shadow: 0 4px 15px rgba(59,130,246,0.4);  .dark & { background: rgba(59,130,246,0.2);  border: 1px solid rgba(34,211,238,0.3);  color: rgb(34,211,238);  box-shadow: 0 0 15px rgba(0,255,255,0.3); } }
+@utility stat-icon-green  { background: rgb(16,185,129);  color: white; box-shadow: 0 4px 15px rgba(16,185,129,0.4);  .dark & { background: rgba(16,185,129,0.2);  border: 1px solid rgba(52,211,153,0.3);  color: rgb(52,211,153);  box-shadow: 0 0 15px rgba(16,185,129,0.3); } }
+@utility stat-icon-red    { background: rgb(239,68,68);   color: white; box-shadow: 0 4px 15px rgba(239,68,68,0.4);   .dark & { background: rgba(239,68,68,0.2);   border: 1px solid rgba(252,165,165,0.3); color: rgb(252,165,165); box-shadow: 0 0 15px rgba(239,68,68,0.3); } }
+@utility stat-icon-purple { background: rgb(168,85,247);  color: white; box-shadow: 0 4px 15px rgba(168,85,247,0.4);  .dark & { background: rgba(168,85,247,0.2);  border: 1px solid rgba(196,181,253,0.3); color: rgb(196,181,253); box-shadow: 0 0 15px rgba(168,85,247,0.3); } }
+
+/* StatisticsCard label per accent */
+@utility stat-label-blue   { color: rgb(107,114,128); .dark & { color: rgba(34,211,238,0.7); } }
+@utility stat-label-green  { color: rgb(107,114,128); .dark & { color: rgba(52,211,153,0.7); } }
+@utility stat-label-red    { color: rgb(107,114,128); .dark & { color: rgba(252,165,165,0.7); } }
+@utility stat-label-purple { color: rgb(107,114,128); .dark & { color: rgba(196,181,253,0.7); } }
+
+/* StatisticsCard gradient per accent */
+@utility stat-gradient-blue   { background: linear-gradient(to bottom right, rgba(239,246,255,0.8), rgba(255,255,255,0.6), rgba(255,255,255,0.2)); .dark & { background: linear-gradient(to bottom right, rgba(30,58,138,0.6),  rgba(5,8,16,0.9),  rgba(2,4,8,0.95)); } }
+@utility stat-gradient-green  { background: linear-gradient(to bottom right, rgba(236,253,245,0.8), rgba(255,255,255,0.6), rgba(255,255,255,0.2)); .dark & { background: linear-gradient(to bottom right, rgba(6,78,59,0.6),   rgba(3,10,8,0.9),  rgba(2,4,8,0.95)); } }
+@utility stat-gradient-red    { background: linear-gradient(to bottom right, rgba(254,242,242,0.8), rgba(255,255,255,0.6), rgba(255,255,255,0.2)); .dark & { background: linear-gradient(to bottom right, rgba(127,29,29,0.6),  rgba(10,3,3,0.9),  rgba(2,4,8,0.95)); } }
+@utility stat-gradient-purple { background: linear-gradient(to bottom right, rgba(245,243,255,0.8), rgba(255,255,255,0.6), rgba(255,255,255,0.2)); .dark & { background: linear-gradient(to bottom right, rgba(88,28,135,0.6),  rgba(8,3,16,0.9),  rgba(2,4,8,0.95)); } }
+
+/* Table status glow */
+@utility status-glow-approved { background: rgba(52,211,153,0.1);  .dark & { background: rgba(16,185,129,0.15); } }
+@utility status-glow-pending  { background: rgba(251,191,36,0.1);  .dark & { background: rgba(245,158,11,0.15); } }
+@utility status-glow-rejected { background: rgba(252,165,165,0.2); .dark & { background: rgba(239,68,68,0.3);  } }

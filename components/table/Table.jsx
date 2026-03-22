@@ -18,9 +18,9 @@ export const Table = ({ columns, data, emptyMessage = "لا توجد سجلات 
                         {/* Status Glow (if status exists) — Subdued Neon for Success/Pending */}
                         {row.status && (
                             <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full blur-[40px] transition-all duration-500 group-hover:scale-125
-                                ${row.status.includes('approved') ? 'bg-emerald-400/10 dark:bg-emerald-500/15' :
-                                    row.status.includes('reject') ? 'bg-red-400/20 dark:bg-red-500/30' :
-                                        'bg-amber-400/10 dark:bg-amber-500/15'}`}
+                                ${row.status.includes('approved') ? 'status-glow-approved' :
+                                    row.status.includes('reject') ? 'status-glow-rejected' :
+                                        'status-glow-pending'}`}
                             />
                         )}
 

@@ -44,10 +44,7 @@ export const SearchField = ({ placeholder = "ابدأ البحث هنا...", onC
             {/* Clear Button / Shortcut indicator */}
             <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 z-10 transition-all">
                 {query ? (
-                    <button 
-                        onClick={handleClear}
-                        className="p-1 rounded-lg bg-gray-100 dark:bg-white/5 text-gray-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all hover:rotate-90"
-                    >
+                    <button onClick={handleClear} className="search-clear-btn">
                         <X className="w-4 h-4" />
                     </button>
                 ) : (

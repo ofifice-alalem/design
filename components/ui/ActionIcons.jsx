@@ -30,11 +30,11 @@ export const ActionIcon = ({ type, onClick, tooltip }) => {
     }[type] || 'action-icon-btn action-icon-default';
 
     const tooltipColor = {
-        view: 'bg-blue-600 dark:bg-cyan-600',
-        edit: 'bg-amber-600',
-        delete: 'bg-red-600',
-        call: 'bg-emerald-600',
-    }[type] || 'bg-gray-800 dark:bg-gray-700';
+        view:   'tooltip-blue',
+        edit:   'tooltip-amber',
+        delete: 'tooltip-red',
+        call:   'tooltip-emerald',
+    }[type] || 'tooltip-default';
 
     return (
         <div className="relative group/tooltip inline-block">

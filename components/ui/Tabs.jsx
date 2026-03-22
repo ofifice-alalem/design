@@ -21,7 +21,7 @@ export const Tabs = ({ tabs, defaultTab, onChange, className = '' }) => {
     };
 
     return (
-        <div className={`tabs-wrapper ${className}`}>
+        <div className={`tabs-wrapper overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-cyan-400/30 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-cyan-400/50 ${className}`}>
             {/* Sliding Indicator Background */}
             <div 
                 className="absolute h-[calc(100%-12px)] top-1.5 bg-white dark:bg-white/10 rounded-xl shadow-md dark:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/60 dark:border-white/15"

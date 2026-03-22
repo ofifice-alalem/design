@@ -40,9 +40,9 @@ export default function App() {
 
     const Section = ({ title, children, className = "", style = {} }) => (
         <section style={style} className={`section-wrapper group/section ${className}`}>
-            <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/5 to-transparent rounded-t-[32px] pointer-events-none"></div>
-            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-cyan-400 border-b-2 border-gray-300/60 dark:border-cyan-500/30 pb-4 flex items-center gap-3 relative z-10">
-                <span className="w-3 h-3 rounded-full bg-blue-500 dark:bg-cyanNeon shadow-[0_0_10px_rgba(59,130,246,0.6)] dark:shadow-[0_0_15px_rgba(0,255,255,1)]"></span>
+            <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-cyan-400/5 to-transparent rounded-t-[32px] pointer-events-none"></div>
+            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-cyan-300 border-b-2 border-gray-300/60 dark:border-cyan-500/40 pb-4 flex items-center gap-3 relative z-10">
+                <span className="w-3 h-3 rounded-full bg-blue-500 dark:bg-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.6)] dark:shadow-[0_0_20px_rgba(0,255,255,1)]"></span>
                 {title}
             </h2>
             <div className="space-y-6 relative z-10">{children}</div>
@@ -56,20 +56,20 @@ export default function App() {
                 <div className="max-w-7xl mx-auto space-y-8">
 
                     {/* Header Options — Floating Glass Bar */}
-                    <div className="page-header group/header">
-                        <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tighter flex items-center gap-2 group-hover/header:tracking-tight transition-all">
-                            <div className="w-8 h-8 rounded-[10px] bg-gradient-to-br from-blue-600 to-cyan-400 dark:from-cyan-400 dark:to-blue-600 shadow-lg flex items-center justify-center">
-                                <span className="text-white text-base">N</span>
+                    <div className="page-header group/header" style={{ backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)' }}>
+                        <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2 group-hover/header:tracking-tight transition-all">
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-400 dark:from-cyan-400 dark:to-blue-600 shadow-md flex items-center justify-center">
+                                <span className="text-white text-base font-bold">N</span>
                             </div>
-                            NEXUS<span className="text-blue-600 dark:text-cyanNeon">WM</span>
-                            <span className="text-[10px] font-bold text-blue-500/50 dark:text-cyan-400/50 uppercase tracking-widest ml-1 border-l border-gray-200 dark:border-white/10 pl-3">Design v2.1</span>
+                            NEXUS<span className="text-blue-600 dark:text-cyan-400">WM</span>
+                            <span className="text-[10px] font-bold text-blue-500/50 dark:text-cyan-400/70 uppercase tracking-widest ml-1 border-l border-gray-200 dark:border-white/20 pl-3">Design v2.1</span>
                         </h1>
                         <div className="flex items-center gap-3">
                             <Button
                                 variant="ghost"
                                 icon={isDark ? Sun : Moon}
                                 onClick={toggleTheme}
-                                className="w-11 h-11 p-0 rounded-2xl bg-gray-50/50 dark:bg-white/5 border border-gray-100 dark:border-white/10 hover:border-blue-400 dark:hover:border-cyan-400 shadow-none"
+                                className="w-10 h-10 p-0 rounded-lg bg-gray-50/50 dark:bg-white/10 border border-gray-200/50 dark:border-white/20 hover:border-blue-400 dark:hover:border-cyan-400 shadow-sm"
                             />
                         </div>
                     </div>
@@ -79,8 +79,8 @@ export default function App() {
                         <div className="grid grid-cols-1 gap-10">
                             {/* Full Color Palette — Professional Circles */}
                             <div>
-                                <h3 className="text-[11px] font-extrabold text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
-                                    <div className="w-4 h-[2px] bg-blue-500" />
+                                <h3 className="text-[11px] font-extrabold text-gray-400 dark:text-cyan-400/80 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                                    <div className="w-4 h-[2px] bg-blue-500 dark:bg-cyan-400 dark:shadow-[0_0_8px_rgba(0,255,255,0.6)]" />
                                     Color Palette — All Tokens
                                 </h3>
                                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
@@ -112,21 +112,21 @@ export default function App() {
                             </div>
                             {/* Backgrounds */}
                             <div>
-                                <h3 className="text-[11px] font-extrabold text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
-                                    <div className="w-4 h-[2px] bg-blue-500" />
+                                <h3 className="text-[11px] font-extrabold text-gray-400 dark:text-cyan-400/80 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                                    <div className="w-4 h-[2px] bg-blue-500 dark:bg-cyan-400 dark:shadow-[0_0_8px_rgba(0,255,255,0.6)]" />
                                     Background Effects
                                 </h3>
                                 <div className="flex gap-4 h-28">
-                                    <div className="flex-1 relative rounded-3xl overflow-hidden glass-panel-vanilla flex items-center justify-center border border-white group/bg">
+                                    <div className="flex-1 relative rounded-3xl overflow-hidden glass-panel-vanilla flex items-center justify-center border border-white dark:border-cyan-400/30 dark:shadow-[0_0_20px_rgba(0,255,255,0.2)] group/bg">
                                         <div className="noise-bg" />
-                                        <span className="font-black relative z-10 text-gray-800 dark:text-white uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Glass + Noise</span>
+                                        <span className="font-black relative z-10 text-gray-800 dark:text-cyan-300 uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Glass + Noise</span>
                                     </div>
-                                    <div className="flex-1 relative rounded-3xl overflow-hidden flex items-center justify-center border border-gray-200 dark:border-white/10 bg-white dark:bg-black/20 group/bg">
+                                    <div className="flex-1 relative rounded-3xl overflow-hidden flex items-center justify-center border border-gray-200 dark:border-cyan-400/30 bg-white dark:bg-black/20 dark:shadow-[0_0_20px_rgba(0,255,255,0.15)] group/bg">
                                         <div className="absolute inset-0 cyber-grid opacity-30" />
-                                        <span className="font-black relative z-10 text-gray-800 dark:text-white uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Cyber Grid</span>
+                                        <span className="font-black relative z-10 text-gray-800 dark:text-cyan-300 uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Cyber Grid</span>
                                     </div>
-                                    <div className="flex-1 relative rounded-3xl overflow-hidden flex items-center justify-center border border-cyan-500/20 dark:border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 group/bg">
-                                        <span className="font-black text-blue-900/40 dark:text-cyan-400/50 uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Glass Tint</span>
+                                    <div className="flex-1 relative rounded-3xl overflow-hidden flex items-center justify-center border border-cyan-500/20 dark:border-cyan-500/40 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 dark:from-cyan-500/10 dark:to-purple-500/10 dark:shadow-[0_0_20px_rgba(0,255,255,0.15)] group/bg">
+                                        <span className="font-black text-blue-900/40 dark:text-cyan-400/80 uppercase tracking-widest text-[10px] opacity-50 group-hover/bg:opacity-100 transition-opacity">Glass Tint</span>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@ export default function App() {
                     <Section title="2. Icons & Buttons (الايكون و الازرار)">
                         <div className="flex flex-col gap-8">
                             <div>
-                                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Action Buttons</h3>
+                                <h3 className="text-sm font-semibold text-gray-500 dark:text-cyan-300/80 uppercase tracking-wider mb-4">Action Buttons</h3>
                                 <div className="flex flex-wrap gap-4">
                                     <Button variant="primary" icon={<Plus size={18} />}>إضافة جديد</Button>
                                     <Button variant="danger" icon={<Trash size={18} />}>حذف المحدد</Button>
@@ -163,7 +163,7 @@ export default function App() {
                             </div>
 
                             <div>
-                                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">View & Action Icons</h3>
+                                <h3 className="text-sm font-semibold text-gray-500 dark:text-cyan-300/80 uppercase tracking-wider mb-4">View & Action Icons</h3>
                                 <div className="flex flex-wrap items-center gap-4 p-4 bg-white/40 dark:bg-white/5 rounded-2xl border border-white/80 dark:border-white/10 w-fit backdrop-blur-xl">
                                     <ViewToggle />
                                     <div className="w-px h-8 bg-gray-400/60 dark:bg-white/25 mx-2"></div>
@@ -194,8 +194,8 @@ export default function App() {
                             />
                         </div>
 
-                        <div className="mt-8 border-t-2 border-gray-300/60 dark:border-white/20 pt-6 relative z-10">
-                            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Inline Filter View (قائمة فلاتر مدمجة)</h3>
+                            <div className="mt-8 border-t-2 border-gray-300/60 dark:border-cyan-500/30 pt-6 relative z-10">
+                                <h3 className="text-sm font-semibold text-gray-500 dark:text-cyan-300/90 uppercase tracking-wider mb-4">Inline Filter View (قائمة فلاتر مدمجة)</h3>
                             <FilterPanel
                                 inline={true}
                                 filters={[
@@ -211,7 +211,7 @@ export default function App() {
                     <Section title="4. Tabs System (تابات بنصوص، واخرى بأيقونات)">
                         <div className="flex flex-col gap-6">
                             <div>
-                                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Text Only Tabs</h3>
+                                <h3 className="text-sm font-semibold text-gray-500 dark:text-cyan-300/80 uppercase tracking-wider mb-3">Text Only Tabs</h3>
                                 <Tabs
                                     defaultTab="docs"
                                     tabs={[
@@ -223,7 +223,7 @@ export default function App() {
                             </div>
 
                             <div>
-                                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Tabs with Icons & Text</h3>
+                                <h3 className="text-sm font-semibold text-gray-500 dark:text-cyan-300/80 uppercase tracking-wider mb-3">Tabs with Icons & Text</h3>
                                 <Tabs
                                     defaultTab="dashboard"
                                     tabs={[
@@ -240,7 +240,7 @@ export default function App() {
                     {/* 5. Data Tables */}
                     <Section title="5. Data Tables (الجداول) - Table / Cards Toggle">
                         <div className="flex justify-between items-end mb-6">
-                            <p className="text-gray-600 dark:text-gray-400 text-sm">Reusable table with built-in view mode toggle.</p>
+                            <p className="text-gray-600 dark:text-cyan-200/70 text-sm">Reusable table with built-in view mode toggle.</p>
                             <div className="view-switcher">
                                 <button onClick={() => setTableViewMode('table')} className={tableViewMode === 'table' ? 'view-switcher-btn-active' : 'view-switcher-btn-inactive'}>Table View</button>
                                 <button onClick={() => setTableViewMode('grid')} className={tableViewMode === 'grid' ? 'view-switcher-btn-active' : 'view-switcher-btn-inactive'}>Card View</button>
@@ -270,8 +270,8 @@ export default function App() {
                             ]}
                         />
 
-                        <div className="mt-10 border-t-2 border-gray-300/60 dark:border-white/20 pt-8 relative z-10">
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-6">Status Emphasized Table (تلوين الحواف بالبطاقات)</h3>
+                        <div className="mt-10 border-t-2 border-gray-300/60 dark:border-cyan-500/30 pt-8 relative z-10">
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-cyan-300 mb-6">Status Emphasized Table (تلوين الحواف بالبطاقات)</h3>
                             <Table
                                 viewMode={tableViewMode}
                                 cardClassName={(row) => {
@@ -330,7 +330,7 @@ export default function App() {
                     {/* 7. Background Details */}
                     <Section title="7. Base Background Explanation (الخلفيات الأساسية)">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
-                            <div className="bg-[#f3f6f9] rounded-3xl p-8 border border-gray-200 shadow-md relative overflow-hidden text-gray-800 min-h-[250px] group hover:shadow-xl transition-all">
+                            <div className="bg-[#f5f5f7] rounded-2xl p-8 border border-gray-200/80 shadow-sm relative overflow-hidden text-gray-800 min-h-[250px] group hover:shadow-md transition-all">
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ backgroundImage: "radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(176, 38, 255, 0.12) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.08) 0%, transparent 50%)" }}></div>
                                 <div className="relative z-10 flex flex-col gap-3">
                                     <div className="flex items-center gap-2 mb-2">
@@ -346,19 +346,20 @@ export default function App() {
                                 </div>
                             </div>
 
-                            <div className="bg-[#050810] rounded-3xl p-8 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden text-gray-200 min-h-[250px] group hover:shadow-[0_15px_50px_rgba(0,255,255,0.15)] transition-all">
+                            <div className="bg-[#000000] rounded-2xl p-8 border-2 border-cyan-400/40 shadow-[0_0_30px_rgba(0,255,255,0.3)] relative overflow-hidden text-gray-200 min-h-[250px] group hover:shadow-[0_0_40px_rgba(0,255,255,0.4)] hover:border-cyan-400/60 transition-all">
                                 <div className="absolute inset-0 cyber-grid opacity-30"></div>
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0, 255, 255, 0.15), transparent 25%), radial-gradient(circle at 85% 30%, rgba(176, 38, 255, 0.15), transparent 25%)" }}></div>
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0, 255, 255, 0.2), transparent 25%), radial-gradient(circle at 85% 30%, rgba(176, 38, 255, 0.2), transparent 25%)" }}></div>
                                 <div className="relative z-10 flex flex-col gap-3">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <div className="w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_10px_#00ffff]"></div>
-                                        <h4 className="font-bold text-xl tracking-tight text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Dark Mode Background</h4>
-                                        <span className="font-mono bg-black/50 px-2 py-0.5 rounded border border-white/20 ml-auto select-all text-cyan-300">#050810</span>
+                                        <div className="w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_15px_#00ffff,0_0_30px_#00ffff]"></div>
+                                        <h4 className="font-bold text-xl tracking-tight text-cyan-300 drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]">Dark Mode Background</h4>
+                                        <span className="font-mono bg-black/50 px-2 py-0.5 rounded border border-white/30 ml-auto select-all text-cyan-300">#000000</span>
                                     </div>
-                                    <p className="font-semibold text-gray-300 text-base">الخلفية سوداء مزرقة تخلق عمقاً للـ Glassmorphism.</p>
-                                    <ul className="list-disc list-inside text-gray-400 space-y-1 mt-2">
-                                        <li>تحتوي على تدرجات دائرية خافتة (0.06 opacity).</li>
-                                        <li>مرر الماوس (Hover) لترى التنبيه الضوئي يسطع!</li>
+                                    <p className="font-semibold text-cyan-200 text-base">الخلفية سوداء نقية مع حدود نيون سيان لتمييز العناصر.</p>
+                                    <ul className="list-disc list-inside text-cyan-300/80 space-y-1 mt-2">
+                                        <li>تحتوي على تدرجات دائرية نيون (0.15 opacity).</li>
+                                        <li>حدود نيون سيان (0.3-0.4) لتمييز الحاويات بوضوح!</li>
+                                        <li>ظلال متوهجة تضيف عمق وتباين عالي!</li>
                                     </ul>
                                 </div>
                             </div>

@@ -10,19 +10,19 @@ export const StatisticsCard = ({
     accent = 'blue'
 }) => {
     const accentConfig = {
-        blue:   { cardBorder: 'stat-card-blue',   sphere: 'ambient-sphere-primary -right-6 -top-6', icon: 'stat-icon-blue',   label: 'stat-label-blue',   gradient: 'stat-gradient-blue'   },
-        green:  { cardBorder: 'stat-card-green',  sphere: 'ambient-sphere-success -right-6 -top-6', icon: 'stat-icon-green',  label: 'stat-label-green',  gradient: 'stat-gradient-green'  },
-        red:    { cardBorder: 'stat-card-red',    sphere: 'ambient-sphere-danger -right-6 -top-6',  icon: 'stat-icon-red',    label: 'stat-label-red',    gradient: 'stat-gradient-red'    },
-        purple: { cardBorder: 'stat-card-purple', sphere: 'ambient-sphere-accent -right-6 -top-6',  icon: 'stat-icon-purple', label: 'stat-label-purple', gradient: 'stat-gradient-purple' },
+        blue:   { cardBorder: 'stat-card-blue',   sphere: 'ambient-sphere-primary -right-6 -top-6', icon: 'stat-icon-blue',   label: 'stat-label-blue',   gradient: 'stat-gradient-blue', neonBorder: 'dark:border-cyan-400/30 dark:shadow-[0_0_12px_rgba(0,255,255,0.15)]'   },
+        green:  { cardBorder: 'stat-card-green',  sphere: 'ambient-sphere-success -right-6 -top-6', icon: 'stat-icon-green',  label: 'stat-label-green',  gradient: 'stat-gradient-green', neonBorder: 'dark:border-emerald-400/30 dark:shadow-[0_0_12px_rgba(16,185,129,0.15)]'  },
+        red:    { cardBorder: 'stat-card-red',    sphere: 'ambient-sphere-danger -right-6 -top-6',  icon: 'stat-icon-red',    label: 'stat-label-red',    gradient: 'stat-gradient-red', neonBorder: 'dark:border-red-400/30 dark:shadow-[0_0_12px_rgba(239,68,68,0.15)]'    },
+        purple: { cardBorder: 'stat-card-purple', sphere: 'ambient-sphere-accent -right-6 -top-6',  icon: 'stat-icon-purple', label: 'stat-label-purple', gradient: 'stat-gradient-purple', neonBorder: 'dark:border-purple-400/30 dark:shadow-[0_0_12px_rgba(168,85,247,0.15)]' },
     };
 
     const config = accentConfig[accent] || accentConfig.blue;
 
     return (
-        <div className={`table-card ${config.cardBorder} min-h-[160px] flex flex-col justify-between group`}>
+        <div className={`table-card ${config.cardBorder} ${config.neonBorder} min-h-[160px] flex flex-col justify-between group hover:dark:shadow-[0_0_20px_rgba(0,255,255,0.25)] transition-all duration-500`}>
             <div className="noise-texture" />
             <div className="glass-glow-top" />
-            <div className={`${config.sphere} group-hover:scale-150 group-hover:opacity-100 dark:opacity-20 dark:group-hover:opacity-40`} />
+            <div className={`${config.sphere} group-hover:scale-150 group-hover:opacity-100 dark:opacity-15 dark:group-hover:opacity-30`} />
 
             <div className="flex justify-between items-start z-10 relative">
                 <p className={`text-xs font-bold uppercase tracking-[0.12em] leading-snug text-gray-500 ${config.label}`}>

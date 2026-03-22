@@ -41,7 +41,7 @@ export default function App() {
     const Section = ({ title, children, className = "", style = {} }) => (
         <section style={style} className={`section-wrapper group/section ${className}`}>
             <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/5 to-transparent rounded-t-[32px] pointer-events-none"></div>
-            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-cyan-400 border-b border-gray-200/50 dark:border-white/10 pb-4 flex items-center gap-3 relative z-10">
+            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-cyan-400 border-b-2 border-gray-300/60 dark:border-cyan-500/30 pb-4 flex items-center gap-3 relative z-10">
                 <span className="w-3 h-3 rounded-full bg-blue-500 dark:bg-cyanNeon shadow-[0_0_10px_rgba(59,130,246,0.6)] dark:shadow-[0_0_15px_rgba(0,255,255,1)]"></span>
                 {title}
             </h2>
@@ -166,11 +166,11 @@ export default function App() {
                                 <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">View & Action Icons</h3>
                                 <div className="flex flex-wrap items-center gap-4 p-4 bg-white/40 dark:bg-white/5 rounded-2xl border border-white/80 dark:border-white/10 w-fit backdrop-blur-xl">
                                     <ViewToggle />
-                                    <div className="w-px h-8 bg-gray-300 dark:bg-white/10 mx-2"></div>
+                                    <div className="w-px h-8 bg-gray-400/60 dark:bg-white/25 mx-2"></div>
                                     <ActionIcon type="users" tooltip="Manage Employees" />
                                     <ActionIcon type="statistics" tooltip="Analytics" />
 
-                                    <div className="w-px h-8 bg-gray-300 dark:bg-white/10 mx-2"></div>
+                                    <div className="w-px h-8 bg-gray-400/60 dark:bg-white/25 mx-2"></div>
                                     <ActionIcon type="upload" tooltip="رفع صورة" />
                                     <ActionIcon type="backup" tooltip="نسخ احتياطي" />
                                     <ActionIcon type="restore" tooltip="استعادة" />
@@ -194,7 +194,7 @@ export default function App() {
                             />
                         </div>
 
-                        <div className="mt-8 border-t border-gray-200/50 dark:border-white/10 pt-6 relative z-10">
+                        <div className="mt-8 border-t-2 border-gray-300/60 dark:border-white/20 pt-6 relative z-10">
                             <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Inline Filter View (قائمة فلاتر مدمجة)</h3>
                             <FilterPanel
                                 inline={true}
@@ -270,7 +270,7 @@ export default function App() {
                             ]}
                         />
 
-                        <div className="mt-10 border-t border-gray-200/50 dark:border-white/10 pt-8 relative z-10">
+                        <div className="mt-10 border-t-2 border-gray-300/60 dark:border-white/20 pt-8 relative z-10">
                             <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-6">Status Emphasized Table (تلوين الحواف بالبطاقات)</h3>
                             <Table
                                 viewMode={tableViewMode}
@@ -421,7 +421,7 @@ export default function App() {
                             <label className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">ملاحظة (اختياري)</label>
                             <textarea className="modal-textarea" rows="3" placeholder="أدخل سبب الحذف..." />
                         </div>
-                        <div className="flex justify-end gap-2.5 pt-4 border-t border-black/8 dark:border-white/8">
+                        <div className="flex justify-end gap-2.5 pt-4 border-t-2 border-gray-300/40 dark:border-white/15">
                             <Button variant="ghost" onClick={() => setDeleteModalOpen(false)}>إلغاء</Button>
                             <Button variant="danger" icon={<Trash size={15} />}>تأكيد الحذف</Button>
                         </div>
@@ -465,7 +465,7 @@ export default function App() {
                                 </div>
                             )}
                         </div>
-                        <div className="flex justify-end gap-2.5 pt-4 border-t border-black/8 dark:border-white/8">
+                        <div className="flex justify-end gap-2.5 pt-4 border-t-2 border-gray-300/40 dark:border-white/15">
                             <Button variant="ghost" onClick={() => { setUploadModalOpen(false); setImagePreview(null); }}>إغلاق</Button>
                             <Button variant="primary" icon={<UploadCloud size={15} />} onClick={() => setUploadModalOpen(false)}>حفظ</Button>
                         </div>
@@ -515,7 +515,7 @@ export default function App() {
                                 })}
                             </div>
                         </div>
-                        <div className="flex justify-end gap-2.5 pt-4 border-t border-black/8 dark:border-white/8">
+                        <div className="flex justify-end gap-2.5 pt-4 border-t-2 border-gray-300/40 dark:border-white/15">
                             <Button variant="ghost" onClick={() => setBackupModalOpen(false)}>إلغاء</Button>
                             <Button variant="primary" icon={<Download size={15} />}>بدء النسخ</Button>
                         </div>
@@ -546,7 +546,7 @@ export default function App() {
                                 ))}
                             </div>
                         </div>
-                        <div className="flex justify-end gap-2.5 pt-4 border-t border-black/8 dark:border-white/8">
+                        <div className="flex justify-end gap-2.5 pt-4 border-t-2 border-gray-300/40 dark:border-white/15">
                             <Button variant="ghost" onClick={() => setRestoreModalOpen(false)}>إلغاء</Button>
                             <Button variant="primary" icon={<History size={15} />}>استعادة الآن</Button>
                         </div>

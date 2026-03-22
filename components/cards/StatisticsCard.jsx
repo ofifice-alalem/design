@@ -19,7 +19,7 @@ export const StatisticsCard = ({
     const config = accentConfig[accent] || accentConfig.blue;
 
     return (
-        <div className={`glass-card-primary ${config.cardBorder} ${config.gradient} min-h-[160px] flex flex-col justify-between p-6 rounded-[24px] group hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 dark:bg-[#0a0d14]/80 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)] border`}>
+        <div className={`table-card ${config.cardBorder} min-h-[160px] flex flex-col justify-between group`}>
             <div className="noise-texture" />
             <div className="glass-glow-top" />
             <div className={`${config.sphere} group-hover:scale-150 group-hover:opacity-100 dark:opacity-20 dark:group-hover:opacity-40`} />

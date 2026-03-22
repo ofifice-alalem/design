@@ -1,0 +1,322 @@
+/* ============================================
+   DESIGN TOKENS - نظام المتغيرات الموحد (Final Refactor)
+   ============================================ */
+
+@layer base {
+    :root {
+        /* Raw RGB values */
+        --color-primary-raw: 59 130 246;
+        --color-primary-dark-raw: 37 99 235;
+        --color-primary-light-raw: 96 165 250;
+        --color-secondary-raw: 168 85 247;
+        --color-accent-raw: 0 255 255;
+        
+        --color-success-raw: 16 185 129;
+        --color-danger-raw: 239 68 68;
+        --color-warning-raw: 249 115 22;
+        --color-info-raw: 59 130 246;
+
+        /* Glass Effect Variables */
+        --glass-bg-light: rgba(255, 255, 255, 0.8);
+        --glass-bg-dark: rgba(2, 4, 8, 0.7);
+        --glass-border-light: rgba(255, 255, 255, 0.6);
+        --glass-border-dark: rgba(255, 255, 255, 0.1);
+        --glass-blur: 40px;
+
+        /* Shared Animations */
+        --transition-base: 300ms ease;
+        --transition-slow: 500ms ease;
+
+        /* Shadows */
+        --shadow-md: 0 8px 32px rgba(31, 38, 135, 0.08);
+        --shadow-lg: 0 10px 40px rgba(31, 38, 135, 0.1);
+    }
+
+    .dark {
+        --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.6);
+        --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* ============================================
+   BASE DEFINITIONS (Using standard CSS)
+   ============================================ */
+
+/* We define base styles as standard classes to avoid @apply issues in v4 utility composition */
+.glass-card-base {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+
+.dark .glass-card-base {
+    background-color: var(--glass-bg-dark);
+    border: 1px solid var(--glass-border-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md), inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.ambient-sphere-base {
+    position: absolute;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    filter: blur(60px);
+    transition: all var(--transition-slow);
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.dark .ambient-sphere-base {
+    opacity: 0.3;
+}
+
+/* ============================================
+   UTILITIES - نظام اليوتيلتيز الموحد
+   ============================================ */
+
+/* Composition is handled by multiple classes in HTML or repeating properties if needed */
+
+@utility glass-card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+
+@utility glass-card-primary {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+@utility glass-card-success {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+@utility glass-card-danger {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+@utility glass-card-warning {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border-light);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-base);
+}
+
+/* Variants apply specific overrides */
+.dark {
+    .glass-card-primary:hover {
+        border-color: rgb(var(--color-accent-raw) / 0.5);
+        box-shadow: 0 0 40px rgba(var(--color-accent-raw), 0.15), var(--shadow-lg);
+    }
+}
+
+@utility ambient-sphere         { position: absolute; width: 9rem; height: 9rem; border-radius: 50%; filter: blur(60px); transition: all var(--transition-slow); opacity: 0.8; z-index: 0; }
+@utility ambient-sphere-primary { position: absolute; width: 9rem; height: 9rem; border-radius: 50%; filter: blur(60px); transition: all var(--transition-slow); opacity: 0.8; z-index: 0; background: rgba(var(--color-primary-raw), 0.2); }
+@utility ambient-sphere-success { position: absolute; width: 9rem; height: 9rem; border-radius: 50%; filter: blur(60px); transition: all var(--transition-slow); opacity: 0.8; z-index: 0; background: rgba(var(--color-success-raw), 0.2); }
+@utility ambient-sphere-danger  { position: absolute; width: 9rem; height: 9rem; border-radius: 50%; filter: blur(60px); transition: all var(--transition-slow); opacity: 0.8; z-index: 0; background: rgba(var(--color-danger-raw), 0.2); }
+@utility ambient-sphere-accent  { position: absolute; width: 9rem; height: 9rem; border-radius: 50%; filter: blur(60px); transition: all var(--transition-slow); opacity: 0.8; z-index: 0; background: rgba(var(--color-accent-raw), 0.2); }
+
+@utility glass-glow-top {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 30%);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 1;
+    .dark & { background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 30%); }
+}
+
+@utility noise-texture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: color-burn;
+    border-radius: inherit;
+    z-index: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    .dark & { opacity: 0.05; mix-blend-mode: screen; }
+}
+
+/* Animations */
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoom-in-95 { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+@utility animate-in { animation-fill-mode: both; }
+@utility fade-in { animation-name: fade-in; }
+@utility zoom-in-95 { animation-name: zoom-in-95; }
+
+/* Buttons */
+@utility btn-base {
+    @apply relative flex items-center justify-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 font-medium overflow-hidden;
+}
+
+@utility btn-primary {
+    @apply btn-base text-white;
+    background: linear-gradient(to bottom right, rgb(59, 130, 246), rgb(37, 99, 235));
+    border: 1px solid rgba(96, 165, 250, 0.6);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+    &:hover {
+        background: linear-gradient(to bottom right, rgb(96, 165, 250), rgb(59, 130, 246));
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    }
+    .dark & {
+        background: linear-gradient(to bottom right, rgba(0, 255, 255, 0.15), rgba(59, 130, 246, 0.15));
+        @apply text-cyan-300 border-white/10;
+        border-top-color: rgba(255,255,255,0.25);
+        box-shadow: none;
+        &:hover {
+            background: linear-gradient(to bottom right, rgba(0, 255, 255, 0.25), rgba(59, 130, 246, 0.25));
+            @apply border-cyan-400 shadow-[0_0_25px_rgba(0,255,255,0.4)];
+        }
+    }
+}
+
+@utility btn-danger {
+    @apply btn-base text-white;
+    background: linear-gradient(to bottom right, rgb(239, 68, 68), rgb(185, 28, 28));
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+    &:hover {
+        background: linear-gradient(to bottom right, rgb(248, 113, 113), rgb(239, 68, 68));
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+    }
+    .dark & {
+        background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.2), rgba(185, 28, 28, 0.15));
+        @apply text-red-300 border-red-500/20;
+        border-top-color: rgba(248,113,113,0.35);
+        box-shadow: none;
+        &:hover {
+            @apply border-red-400 shadow-[0_0_25px_rgba(239,68,68,0.4)];
+        }
+    }
+}
+
+/* Modal */
+@utility modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: -1;
+}
+
+@utility modal-panel-base {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 32rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.dark .modal-panel-base {
+    background: rgba(5, 8, 16, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+@utility modal-panel-primary { position: relative; overflow: hidden; width: 100%; max-width: 32rem; border-radius: 1.25rem; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255, 255, 255, 0.8); border-top: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5); }
+@utility modal-panel-danger  { position: relative; overflow: hidden; width: 100%; max-width: 32rem; border-radius: 1.25rem; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255, 255, 255, 0.8); border-top: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5); }
+@utility modal-panel-warning { position: relative; overflow: hidden; width: 100%; max-width: 32rem; border-radius: 1.25rem; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255, 255, 255, 0.8); border-top: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5); }
+
+@utility modal-glow-primary {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+@utility modal-glow-danger {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+@utility modal-glow-warning {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.08) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.dark .modal-panel-primary,
+.dark .modal-panel-danger,
+.dark .modal-panel-warning {
+    background: rgba(5, 8, 16, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Badges */
+@utility badge-base { @apply px-3 py-1 rounded-xl text-xs font-bold border backdrop-blur-sm; }
+@utility badge-success {
+    @apply badge-base bg-emerald-500/10 text-emerald-700 border-emerald-500;
+    @apply dark:bg-emerald-500/20 dark:text-emerald-400 dark:border-emerald-400;
+}
+@utility badge-danger {
+    @apply badge-base bg-red-500/10 text-red-700 border-red-500;
+    @apply dark:bg-red-500/20 dark:text-red-400 dark:border-red-400;
+}

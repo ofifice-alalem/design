@@ -53,9 +53,9 @@ export const ActionIcon = ({ type, onClick, tooltip }) => {
             tooltipBg: 'bg-emerald-600'
         },
         default: {
-            bg: 'bg-gray-50 dark:bg-white/5',
-            border: 'border-gray-200 dark:border-white/10',
-            text: 'text-gray-500 dark:text-gray-400',
+            bg: 'bg-gray-50 dark:bg-white/10',
+            border: 'border-gray-200 dark:border-white/20',
+            text: 'text-gray-600 dark:text-gray-100',
             hover: 'hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)]',
             tooltipBg: 'bg-gray-800 dark:bg-gray-700'
         }

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @source "../components";
+@import "./design-tokens.css";
 
 /* Allow dark mode classes manually */
 @custom-variant dark (&:is(.dark *));
